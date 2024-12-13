@@ -5,7 +5,9 @@ import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserServiceImpl implements UserService {
 
@@ -29,6 +31,12 @@ public class UserServiceImpl implements UserService {
     }
 
     public List<User> getAllUsers() {
+        /** Распечатали список Юзеров */
+        List<User> users = userDaoHibernate.getAllUsers();
+        for (User user : users) {
+            System.out.println(user);
+        }
+
         return userDaoHibernate.getAllUsers();
     }
 
